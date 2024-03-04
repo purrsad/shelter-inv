@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DonationForm from "./components/DonationForm";
 import DonationList from "./components/DonationList";
+import DonationStatistics from "./components/DonationStatistics";
 
 function App() {
 	const [donations, setDonations] = useState([]);
@@ -23,6 +24,7 @@ function App() {
 				donations={donations}
 				onDeleteDonation={deleteDonation}
 			/>
+			<DonationStatistics donations={donations} />
 		</>
 	);
 }

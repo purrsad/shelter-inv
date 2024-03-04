@@ -2,7 +2,7 @@ import React from "react";
 
 const DonationList = ({ donations, onDeleteDonation }) => {
 	return (
-		<div className="col-span-3">
+		<div className="sm:col-span-1 lg:col-span-3">
 			<div className="prose">
 				<h4 className="mt-6 mb-4">Donations List</h4>
 			</div>

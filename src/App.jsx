@@ -8,7 +8,6 @@ function App() {
 
 	const addDonation = (donation) => {
 		setDonations([...donations, donation]);
-		console.log(donations);
 	};
 
 	const deleteDonation = (index) => {
@@ -18,14 +17,25 @@ function App() {
 	};
 
 	return (
-		<>
-			<DonationForm onAddDonation={addDonation} />
-			<DonationList
-				donations={donations}
-				onDeleteDonation={deleteDonation}
-			/>
-			<DonationStatistics donations={donations} />
-		</>
+		<div className="App">
+			<div className="navbar bg-green-400">
+				<div className="container mx-auto">
+					<a href="/" className="btn btn-ghost text-xl pl-0">
+						Donation Tracker
+					</a>
+				</div>
+			</div>
+			<div className="container px-5 sm:mx-auto ">
+				<div className="grid sm:grid-cols-1 lg:grid-cols-5 gap-4">
+					<DonationList
+						donations={donations}
+						onDeleteDonation={deleteDonation}
+					/>
+					<DonationStatistics donations={donations} />
+					<DonationForm onAddDonation={addDonation} />
+				</div>
+			</div>
+		</div>
 	);
 }
 

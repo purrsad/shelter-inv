@@ -6,7 +6,8 @@ const DonationForm = ({ onAddDonation }) => {
 	const [quantity, setQuantity] = useState("");
 	const [date, setDate] = useState("");
 
-	const today = new Date().toISOString().split("T")[0];
+	// const today = new Date().toISOString().split("T")[0];
+	const today = new Date().toLocaleDateString("en-CA");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -75,7 +76,7 @@ const DonationForm = ({ onAddDonation }) => {
 						type="date"
 						value={date}
 						onChange={(e) => setDate(e.target.value)}
-						min={date}
+						min={today}
 					/>
 				</div>
 				<button className="btn" type="submit">

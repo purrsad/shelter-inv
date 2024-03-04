@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DonationForm from "./components/DonationForm";
+import DonationList from "./components/DonationList";
 
 function App() {
 	const [donations, setDonations] = useState([]);
@@ -9,7 +10,21 @@ function App() {
 		console.log(donations);
 	};
 
-	return <DonationForm onAddDonation={addDonation} />;
+	const deleteDonation = (index) => {
+		const newDonations = [...donations];
+		newDonations.splice(index, 1);
+		setDonations(newDonations);
+	};
+
+	return (
+		<>
+			<DonationForm onAddDonation={addDonation} />
+			<DonationList
+				donations={donations}
+				onDeleteDonation={deleteDonation}
+			/>
+		</>
+	);
 }
 
 export default App;

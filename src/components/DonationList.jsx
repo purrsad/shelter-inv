@@ -8,35 +8,42 @@ const DonationList = ({ donations, onDeleteDonation }) => {
 			</div>
 
 			<div className="overflow-x-auto">
-				<table className="table">
-					<thead>
-						<tr>
-							<th>Donor</th>
-							<th>Type</th>
-							<th>Quantity</th>
-							<th>Date</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						{donations.map((donation, index) => (
-							<tr key={index}>
-								<td>{donation.donorName}</td>
-								<td>{donation.donationType}</td>
-								<td>{donation.quantity}</td>
-								<td>{donation.date}</td>
-								<td>
-									<button
-										className="btn"
-										onClick={() => onDeleteDonation(index)}
-									>
-										Delete
-									</button>
-								</td>
+				{donations.length === 0 && (
+					<p className="text-center">No donations yet.</p>
+				)}
+				{donations.length > 0 && (
+					<table className="table">
+						<thead>
+							<tr>
+								<th>Donor</th>
+								<th>Type</th>
+								<th>Quantity</th>
+								<th>Date</th>
+								<th></th>
 							</tr>
-						))}
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							{donations.map((donation, index) => (
+								<tr key={index}>
+									<td>{donation.donorName}</td>
+									<td>{donation.donationType}</td>
+									<td>{donation.quantity}</td>
+									<td>{donation.date}</td>
+									<td>
+										<button
+											className="btn"
+											onClick={() =>
+												onDeleteDonation(index)
+											}
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				)}
 			</div>
 		</div>
 	);
